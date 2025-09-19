@@ -1,0 +1,70 @@
+a:14:{s:7:"attribs";a:4:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.release";s:9:"xmlns:xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:11:"xmlns:xlink";s:28:"http://www.w3.org/1999/xlink";s:18:"xsi:schemaLocation";s:81:"http://pear.php.net/dtd/rest.release     http://pear.php.net/dtd/rest.release.xsd";}s:1:"p";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:13:"/rest/p/redis";}s:8:"_content";s:5:"redis";}s:1:"c";s:12:"pecl.php.net";s:1:"v";s:5:"6.2.0";s:2:"st";s:6:"stable";s:1:"l";s:3:"PHP";s:1:"m";s:8:"mgrunder";s:1:"s";s:51:"PHP extension for interfacing with key-value stores";s:1:"d";s:119:"This extension provides an API for communicating with RESP-based key-value
+   stores, such as Redis, Valkey, and KeyDB.";s:2:"da";s:19:"2025-03-24 19:05:36";s:1:"n";s:3847:"--- Sponsors ---
+
+A-VISION Advisering - https://a-vision.nu/
+Audiomack - https://audiomack.com
+Avtandil Kikabidze - https://github.com/akalongman
+Geoffrey Hoffman - https://github.com/phpguru
+Object Cache Pro for WordPress - https://objectcache.pro
+Open LMS - https://openlms.net
+Salvatore Sanfilippo - https://github.com/antirez
+Ty Karok - https://github.com/karock
+Vanessa Santana - https://github.com/vanessa-dev
+
+* A special thanks to Jakub Onderka for nearly two dozen performance improvements in this release!
+
+--- 6.2.0 ---
+
+Fixed:
+* Fix arguments order for SET command [f73f5fc] (Pavlo Yatsukhnenko)
+* Fix error length calculation and UB sanity check [e73130fe] (michael-grunder)
+* Invalidate slot cache on failed cluster connections [c7b87843] (James Kennedy)
+* Don't cast a uint64_t to a long [faa4bc20] (michael-grunder)
+* Fix potential NULL dereference [43e6cab8] (peter15914)
+* Print cursor as unsigned 64 bit integer [138d07b6] (Bentley O'Kane-Chase)
+* Fix XAUTOCLAIM argc when sending COUNT [0fe45d24] (michael-grunder)
+
+Added:
+* Added `serverName()` and `serverVersion()` [fa3eb006, cbaf095f, 056c2dbe]
+  (Pavlo Yatsukhnenko, Michael Grunder)
+* Added getWithMeta method [9036ffca, 36ab5850] (Pavlo Yatsukhnenko)
+* Implement GETDEL command for RedisCluster [d342e4ac] (michael-grunder)
+* Introduce Redis::OPT_PACK_IGNORE_NUMBERS option [f9ce9429, 29e5cf0d] (michael-grunder)
+* Implement Valkey >= 8.1 IFEQ SET option [a2eef77f] (michael-grunder)
+* Implement KeyDB's EXPIREMEMBER[AT] commands [4cd3f593] (michael-grunder)
+
+Documentation:
+* Fix phpdoc type of $pattern [5cad2076] (OHZEKI Naoki)
+* Better documentation for the $tlsOptions parameter of RedisCluster [8144db37] (Jacob Brown)
+
+Tests/CI:
+* Add details to the option doc block [abb0f6cc] (michael-grunder)
+* Update CodeQL to v3 [41e11417, a10bca35] (Pavlo Yatsukhnenko)
+* Add PHP 8.4 to CI [6097e7ba] (Pavlo Yatsukhnenko)
+* Pin ubuntu version for KeyDB [eb66fc9e, 985b0313] (michael-grunder)
+* Windows CI: update setup-php-sdk to v0.10 and enable caching [f89d4d8f] (Christoph M. Becker)
+
+Internal:
+* Reduce buffer size for signed integer [044b3038, 35c59880] (Bentley O'Kane-Chase)
+* Create a strncmp wrapper [085d61ec] (michael-grunder)
+* Refactor and avoid allocation in rawcommand method [f68544f7] (Jakub Onderka)
+* Use defines for callback growth + sanity check [42a42769] (michael-grunder)
+* Switch from linked list to growing array for reply callbacks [a551fdc9] (Jakub Onderka)
+* Reuse redis_sock_append_auth method [be388562] (Jakub Onderka)
+* Switch pipeline_cmd from smart_str to smart_string [571ffbc8] (Jakub Onderka)
+* Remove unused redis_debug_response method from library.c [7895636a] (Jakub Onderka)
+* Optimise HMGET method [2434ba29] (Jakub Onderka)
+* Avoid unnecessary allocation in redis_hset_cmd [aba09933] (Jakub Onderka)
+* Avoid unnecessary allocation in redis_hdel_cmd [4082dd07] (Jakub Onderka)
+* Avoid unnecessary allocation in redis_key_varval_cmd [99650e15] (Jakub Onderka)
+* Use zval_get_tmp_string method that is faster when provided zval is string [f6906470] (Jakub Onderka)
+* Optimise constructing Redis command string [2a2f908f] (Jakub Onderka)
+* If no command is issued in multi mode, return immutable empty array [5156e032] (Jakub Onderka)
+* Test for empty pipeline and multi [426de2bb] (Jakub Onderka)
+* Optimise method array_zip_values_and_scores [400503b8] (Jakub Onderka)
+* Faster parameter parsing in redis_key_cmd and redis_key_long_val_cmd [83a19656] (Jakub Onderka)
+* Use immutable empty array in Redis::hKeys [3a2f3f45] (Jakub Onderka)
+* Use immutable empty array in Redis::exec [60b5a886] (Jakub Onderka)
+* Do not allocate empty string or string with one character [64da891e] (Jakub Onderka)
+* Initialize arrays with known size [99beb922] (Jakub Onderka)
+* Use smart str for constructing pipeline cmd [b665925e] (Jakub Onderka)";s:1:"f";s:6:"379865";s:1:"g";s:36:"https://pecl.php.net/get/redis-6.2.0";s:1:"x";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:17:"package.6.2.0.xml";}}}
