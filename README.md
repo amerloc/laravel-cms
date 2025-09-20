@@ -1,61 +1,224 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Visual Page Builder
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel application featuring a powerful visual page builder with drag-and-drop functionality, built with Livewire and GrapesJS.
 
-## About Laravel
+## 🚀 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Visual Page Builder
+- **Drag & Drop Interface**: Intuitive GrapesJS-powered visual editor
+- **Real-time Preview**: See changes instantly as you build
+- **Image Management**: Drag images directly from your PC into the editor
+- **Responsive Design**: Built with Tailwind CSS for mobile-first design
+- **Block Library**: Pre-built components including:
+  - Hero sections
+  - Cards and feature blocks
+  - Buttons and forms
+  - Grid layouts
+  - Text blocks and headings
+  - Image galleries
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Content Management
+- **Page Management**: Create, edit, and organize pages
+- **SEO Optimization**: Built-in meta tags, Open Graph, and canonical URLs
+- **Publishing System**: Draft/published status with scheduled publishing
+- **User Management**: Role-based access control with Spatie permissions
+- **Activity Logging**: Track all changes with Spatie Activity Log
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### File Management
+- **Image Upload**: Drag & drop image uploads with automatic optimization
+- **File Service**: Custom file handling with validation and storage
+- **Media Library**: Organized file storage with automatic cleanup
 
-## Learning Laravel
+## 🛠 Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Backend**: Laravel 12.x with PHP 8.2+
+- **Frontend**: Livewire 3.x for reactive components
+- **Styling**: Tailwind CSS 3.x
+- **Visual Editor**: GrapesJS
+- **Database**: MySQL/PostgreSQL/SQLite
+- **Authentication**: Laravel Breeze
+- **Permissions**: Spatie Laravel Permission
+- **Activity Logging**: Spatie Laravel Activity Log
+- **Media Management**: Spatie Laravel Media Library
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📦 Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd laravel-app
+   ```
 
-## Laravel Sponsors
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
 
-### Premium Partners
+4. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. **Database setup**
+   ```bash
+   php artisan migrate
+   php artisan storage:link
+   ```
 
-## Contributing
+6. **Build assets**
+   ```bash
+   npm run build
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. **Start development server**
+   ```bash
+   php artisan serve
+   ```
 
-## Code of Conduct
+## 🎯 Usage
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Creating Pages
 
-## Security Vulnerabilities
+1. **Access Admin Panel**: Navigate to `/admin/pages`
+2. **Create New Page**: Click "New Page" to create a new page
+3. **Visual Builder**: Use the visual builder to design your page
+4. **Publish**: Set status to "Published" to make it live
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Visual Builder
 
-## License
+1. **Drag Components**: Drag blocks from the left panel into the canvas
+2. **Upload Images**: Drag images directly from your PC into the editor
+3. **Customize**: Click on elements to edit properties
+4. **Save**: Click the save button to persist changes
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Page Structure
+
+- **Admin Routes**: `/admin/*` - Protected admin interface
+- **Public Pages**: `/p/{slug}` - Public page display
+- **Home Page**: `/` redirects to `/p/home`
+
+## 🏗 Project Structure
+
+```
+app/
+├── Livewire/
+│   ├── Admin/
+│   │   ├── CreatePage.php      # Page creation form
+│   │   ├── PageEditor.php      # Traditional page editor
+│   │   ├── PageList.php        # Pages listing
+│   │   └── VisualBuilder.php   # Visual page builder
+│   ├── Components/
+│   │   └── Modal.php           # Reusable modal component
+│   └── ShowPage.php            # Public page display
+├── Models/
+│   ├── Page.php                # Page model with builder support
+│   └── User.php                # User model
+└── Services/
+    └── FileService.php         # File upload and management
+
+resources/views/
+├── layouts/
+│   └── admin.blade.php         # Admin layout
+└── livewire/
+    ├── admin/
+    │   ├── visual-builder.blade.php  # Visual builder interface
+    │   ├── page-editor.blade.php     # Traditional editor
+    │   └── page-list.blade.php       # Pages listing
+    └── show-page.blade.php           # Public page display
+```
+
+## 🔧 Configuration
+
+### File Storage
+The application uses Laravel's file storage system. Configure in `.env`:
+```env
+FILESYSTEM_DISK=public
+```
+
+### Database
+Configure your database connection in `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_app
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+## 🎨 Customization
+
+### Adding New Blocks
+Add custom blocks to the visual builder in `resources/views/livewire/admin/visual-builder.blade.php`:
+
+```javascript
+window.grapesEditor.BlockManager.add('custom-block', {
+    label: 'Custom Block',
+    content: '<div class="custom-block">Your HTML here</div>'
+});
+```
+
+### Styling
+The application uses Tailwind CSS. Customize styles in:
+- `resources/css/app.css`
+- `tailwind.config.js`
+
+## 🔒 Security
+
+- **Authentication**: Laravel Breeze with email verification
+- **Authorization**: Spatie permissions for role-based access
+- **File Upload**: Validated file types and sizes
+- **CSRF Protection**: Built-in Laravel CSRF protection
+- **SQL Injection**: Eloquent ORM protection
+
+## 📝 Development
+
+### Available Commands
+```bash
+# Development with hot reload
+composer run dev
+
+# Run tests
+composer run test
+
+# Code formatting
+./vendor/bin/pint
+
+# Database operations
+php artisan migrate
+php artisan migrate:fresh --seed
+```
+
+### Key Features Implementation
+
+- **Visual Builder**: GrapesJS integration with Livewire
+- **File Uploads**: Custom FileService with drag & drop
+- **Page Management**: Full CRUD with SEO support
+- **User Management**: Role-based permissions
+- **Activity Logging**: Comprehensive change tracking
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 🙏 Acknowledgments
+
+- [Laravel](https://laravel.com) - The PHP framework
+- [Livewire](https://livewire.laravel.com) - Full-stack framework
+- [GrapesJS](https://grapesjs.com) - Visual page builder
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS
+- [Spatie](https://spatie.be) - Laravel packages
