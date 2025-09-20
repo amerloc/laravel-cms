@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton('markdown', function () {
+            return new \League\CommonMark\CommonMarkConverter();
+        });
     }
 
     /**
